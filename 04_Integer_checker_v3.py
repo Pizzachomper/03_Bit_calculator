@@ -12,7 +12,7 @@ def num_check(question, low):
             response = int(input(question))
 
             # checks number is more than zero 
-            if response > low:
+            if response >= low:
                 return response
 
             # outputs error if input is invalid
@@ -30,7 +30,7 @@ while keep_going == "":
     print()
     # ask user for an integer (must be more than / equal to 0)
     var_integer = num_check("Enter an integer: ", 0)
-    print()
+    print("program continues")
 
     # ask for width and height of an image
     # (must be more than / equal to 1)

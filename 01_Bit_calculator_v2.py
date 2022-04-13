@@ -75,10 +75,81 @@ def num_check(question, low):
         except ValueError:
             print(error)
 
+# calculates the # of bits for text (# of characters x 8)
+def text_bits():
+
+    print()
+    # ask user for a string
+    var_text = input("Enter some text: ")
+
+    # calculate # of bits (length of string x 8)
+    var_length = len(var_text)
+    num_bits = 8 * var_length
+
+    # output answer with working
+    print()
+    print("\'{}\' has {} characters ...".format(var_text, var_length))
+    print("# of bits is {} x 8...".format(var_length))
+    print("We need {} bits to represent {}".format(num_bits, var_text))
+    print()
+
+# finds # of bits for 24 bit colour
+def image_bits():
+
+    # gets width and height...
+    image_width = num_check("Image width? ", 1)
+    image_height = num_check("Image height? ", 1)
+
+    # calculate # of pixels
+    num_pixels = image_width * image_height
+
+    # calculate # bits (24 x num pixels)
+    num_bits = num_pixels * 24
+
+    # output answer with working
+    print()
+    print("# of pixels = {} x {} = {}".format(image_height,
+                                              image_width, num_pixels))
+    print("# of bits = {} x 24 = {}".format(num_pixels, num_bits))
+    print()
+
+    return ""
+
+
+
+    # get integer (must be >= 0)
+    var_integer = num_check("Please enter an integer: ", 0)
+
+    var_binary = "{0:b}" .format(var_integer)
+
+    # calculate # of bits (length of string above)
+    num_bits = len(var_binary)
+
+    # output answer with working
+    print()
+    print("{} in binary is {}".format(var_integer, var_binary))
+    print("# of bits is {}".format(num_bits))
+
+# converts decimal to binary and states how many bits are needed to represent the original integer
+def int_bits():
+
+    # get integer (must be >= 0)
+    var_integer = num_check("Please enter an integer: ", 0)
+
+    var_binary = "{0:b}" .format(var_integer)
+
+    # calculate # of bits (length of string above)
+    num_bits = len(var_binary)
+
+    # output answer with working
+    print()
+    print("{} in binary is {}".format(var_integer, var_binary))
+    print("# of bits is {}".format(num_bits))
+
 # Main routines goes here
 
 # Heading
-statement_generator("Bit calculator for Integers, Text and Images, "-")
+statement_generator("Bit calculator for Integers, Text and Images", "-")
 
 # Display instructions if user has not used the program before
 
@@ -92,15 +163,15 @@ while keep_going == "":
 
     # For integers, ask for integer
     if data_type == "integer":
-        var_integer = num_check("Enter an integer: ", 0)
+        int_bits()
 
     # For images, ask for width and height
     # (must be an integer more than / equal to 0)
     elif data_type == "image":
-        image_width = num_check("Image width? ", 1)
-        print()
-        image_height = num_check("Image height? ", 1)
+        image_bits()
 
     # For text, ask for a string
     else:
-        var_text("Enter some text: ")
+        text_bits()
+
+    keep_going = input("press <enter> for another calculation or any key to quit")

@@ -40,8 +40,8 @@ def image_bits():
     # output answer with working
     print()
     print("# of pixels = {} x {} = {}".format(image_height,
-                                             image_width, num_pixels))
-    print("# of pixels = {} x {} = {}".format(num_pixels, num_bits))
+                                              image_width, num_pixels))
+    print("# of bits = {} x 24 = {}".format(num_pixels, num_bits))
     print()
 
     return ""
